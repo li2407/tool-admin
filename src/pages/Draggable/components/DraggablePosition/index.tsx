@@ -4,43 +4,39 @@ import DraggableCard from '../DraggableCard';
 
 interface mapArray {
   name: string;
-  children: [];
+  children: Array<mapArray>;
 }
 
-const DraggableContent: React.FC = () => {
+const DraggablePosition: React.FC = () => {
 
-  let listMap = {
-    name: '主体',
-    right: [
-      {
-        name: 'React',
-        children: [
-          {
-            name: 'TSX',
-            children: [],
-          },
-        ],
-      },
-      {
-        name: 'Vue',
-        children: [],
-      },
-      {
-        name: 'JavaScript',
-        children: [],
-      },
-      {
-        name: 'ES6',
-        children: [],
-      },
-    ],
-    left: [
-      {
-        name: 'TS',
-        children: [],
-      },
-    ]
-  };
+  let listMap : Array<mapArray> = [
+    {
+      name: '主体',
+      children: [
+        {
+          name: 'React',
+          children: [
+            {
+              name: 'TSX',
+              children: [],
+            },
+          ],
+        },
+        {
+          name: 'Vue',
+          children: [],
+        },
+        {
+          name: 'JavaScript',
+          children: [],
+        },
+        {
+          name: 'ES6',
+          children: [],
+        },
+      ]
+    }
+  ];
 
   let colors = ['#12ff26', '#FFB812FF', '#1271FFFF', '#D278FBFF', '#FF1222FF'];
 
@@ -84,19 +80,7 @@ const DraggableContent: React.FC = () => {
   useEffect(() => {
     initElement();
   }, []);
-  return <div className="draggable-content">{
-    <DraggableCard
-      key={0}
-      text={listMap.name}
-      offsetTop={offsetTop}
-      offsetLeft={offsetLeft}
-      initElement={initElement}
-    >
-      <i className="icon" id={`line${0}`} style={{ '--i': '#12ff26' }}></i>
-    </DraggableCard>
-    setup(listMap.left)
-    // setup(listMap.right)
-  }</div>;
+  return <div className="draggable-content">{setup(listMap)}</div>;
 };
 
-export default DraggableContent;
+export default DraggablePosition;

@@ -49,12 +49,6 @@ const DraggableCard : React.FC<Props> = ({ text, children, offsetLeft, offsetTop
 
     useEffect(() => {
         initElement();
-        if (card.current) {
-            setPosition({
-                x: card.current?.parentElement.offsetWidth / 2,
-                y: card.current?.parentElement.offsetHeight / 2
-            });
-        }
     }, []);
 
     return <div className='draggableCard' 

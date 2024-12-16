@@ -1,11 +1,11 @@
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-components';
-import DraggableContent from './components/DraggableContent';
+import DraggablePosition from './components/DraggablePosition';
 
 const Draggable: React.FC = ({}) => {
   return (
     <PageContainer>
-      <DraggableContent></DraggableContent>
+      <DraggablePosition></DraggablePosition>
     </PageContainer>
   );
 };

@@ -31,7 +31,17 @@ export default [
   {
     path: '/draggable',
     name: 'draggable',
-    component: './Draggable',
+    routes: [
+      {
+        path: '/draggable',
+        redirect: '/draggable/draggable-position',
+      },
+      {
+        path: '/draggable/draggable-position',
+        name: 'draggable-position',
+        component: './Draggable',
+      },
+    ]
   },
   {
     path: '/line',
