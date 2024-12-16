@@ -10,7 +10,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "moduleResolution": "bundler",
-    "importHelpers": false,
+    "importHelpers": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
@@ -27,7 +27,7 @@
         "src/.umi/*"
       ],
       "@umijs/max": [
-        "../../node_modules/.store/umi@4.3.35/node_modules/umi"
+        "../../node_modules/umi"
       ],
       "@umijs/max/typings": [
         "src/.umi/typings"

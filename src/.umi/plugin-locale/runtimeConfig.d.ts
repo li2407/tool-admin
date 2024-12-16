@@ -3,7 +3,7 @@
 import {
   IntlCache,
   createIntl,
-} from '/Users/ijj/web_react/ant-design-pro/node_modules/.store/react-intl@3.12.1/node_modules/react-intl';
+} from '/Users/ijj/web_react/tool-admin/node_modules/react-intl';
 type OptionalIntlConfig = Omit<Parameters<typeof createIntl>[0], 'locale' | 'defaultLocale'>;
 export interface IRuntimeConfig {
     locale?: {

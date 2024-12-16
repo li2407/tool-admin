@@ -1,21 +1,13 @@
 {
-  root: '/Users/ijj/web_react/ant-design-pro',
+  root: '/Users/ijj/web_react/tool-admin',
   registry: 'https://registry.npmmirror.com',
-  pkgs: [
-    {
-      name: 'node-sass',
-      version: 'latest',
-      type: 'tag',
-      alias: undefined,
-      arg: [Result]
-    }
-  ],
+  pkgs: [],
   production: false,
   cacheStrict: false,
   cacheDir: '/Users/ijj/.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","node-sass","--dev"],"original":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","node-sass","--dev"]}',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"],"original":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"]}',
     npm_config_user_agent: 'npminstall/7.11.1 npm/? node/v14.21.3 darwin arm64',
     npm_config_cache: '/Users/ijj/.npminstall_tarball',
     NODE: '/Users/ijj/.nvm/versions/node/v14.21.3/bin/node',
@@ -50,8 +42,8 @@
     npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
     npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
     npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
-    npm_rootpath: '/Users/ijj/web_react/ant-design-pro',
-    INIT_CWD: '/Users/ijj/web_react/ant-design-pro'
+    npm_rootpath: '/Users/ijj/web_react/tool-admin',
+    INIT_CWD: '/Users/ijj/web_react/tool-admin'
   },
   binaryMirrors: {
     ENVS: {
@@ -187,7 +179,7 @@
   disableFallbackStore: false,
   workspacesMap: Map(0) {},
   enableWorkspace: false,
-  workspaceRoot: '/Users/ijj/web_react/ant-design-pro',
+  workspaceRoot: '/Users/ijj/web_react/tool-admin',
   isWorkspaceRoot: true,
   isWorkspacePackage: false,
   offline: false,

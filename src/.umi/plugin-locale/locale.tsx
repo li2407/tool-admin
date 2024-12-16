@@ -4,15 +4,15 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
 
-import moment from '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/bn-bd';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/en';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/fa';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/id';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/ja';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/pt-br';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/zh-cn';
-import '/Users/ijj/web_react/ant-design-pro/node_modules/.store/dayjs@1.11.13/node_modules/dayjs/locale/zh-tw';
+import moment from '/Users/ijj/web_react/tool-admin/node_modules/dayjs';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/bn-bd';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/en';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/fa';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/id';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/ja';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/pt-br';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/zh-cn';
+import '/Users/ijj/web_react/tool-admin/node_modules/dayjs/locale/zh-tw';
 import { RawIntlProvider, getLocale, getDirection , setIntl, getIntl, localeInfo, event, LANG_CHANGE_EVENT } from './localeExports';
 
 

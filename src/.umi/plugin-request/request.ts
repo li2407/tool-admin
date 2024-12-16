@@ -6,8 +6,8 @@ import axios, {
   type AxiosRequestConfig,
   type AxiosResponse,
   type AxiosError,
-} from '/Users/ijj/web_react/ant-design-pro/node_modules/.store/axios@0.27.2/node_modules/axios';
-import useUmiRequest, { UseRequestProvider } from '/Users/ijj/web_react/ant-design-pro/node_modules/.store/@ahooksjs+use-request@2.8.15/node_modules/@ahooksjs/use-request';
+} from '/Users/ijj/web_react/tool-admin/node_modules/axios';
+import useUmiRequest, { UseRequestProvider } from '/Users/ijj/web_react/tool-admin/node_modules/@ahooksjs/use-request';
 import { ApplyPluginsType } from 'umi';
 import { getPluginManager } from '../core/plugin';
 
@@ -26,7 +26,7 @@ import {
   PaginatedOptionsWithFormat,
   PaginatedParams,
   PaginatedResult,
-} from '/Users/ijj/web_react/ant-design-pro/node_modules/.store/@ahooksjs+use-request@2.8.15/node_modules/@ahooksjs/use-request/es/types';
+} from '/Users/ijj/web_react/tool-admin/node_modules/@ahooksjs/use-request/es/types';
 
 type ResultWithData< T = any > = { data?: T; [key: string]: any };
 
