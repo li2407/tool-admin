@@ -1,0 +1,22 @@
+#canvas-line {
+    width: 100%;
+    height: 100%;
+}
+
+.meun {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.meun img {
+    width: 20px;
+    height: 20px;
+    user-select: none;
+}

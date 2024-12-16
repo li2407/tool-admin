@@ -1,0 +1,11 @@
+.draggable-content {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+    width: 100%;
+    height: calc(100vh - 275px);
+    flex-wrap: wrap;
+}
