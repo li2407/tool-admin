@@ -16,6 +16,7 @@ class Line {
   canvas: HTMLCanvasElement;
   is_stop: boolean;
   position: Array<Array<Position>>;
+  type: number | undefined;
 
   constructor({ canvas }: Props) {
     this.canvas = canvas;

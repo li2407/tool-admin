@@ -1,4 +1,4 @@
-import React,{ ReactNode, useEffect, useState } from 'react'
+import React,{ ReactNode, useEffect, useState, useRef } from 'react'
 import './index.css'
 
 interface Props {
@@ -17,8 +17,9 @@ interface Position {
 
 const DraggableCard : React.FC<Props> = ({ text, children, offsetLeft, offsetTop, initElement }) => {
 
+    const card = useRef(null);
     const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
-    const [offset, setOffset] = useState({ x: 0, y: 0 });
+    const [offset, setOffset] = useState<Position>({ x: 0, y: 0 });
     const dragEnd = (e: any) => {
         if (e.clientX > 0 && e.clientY > 0) {
             let x = e.clientX - offsetLeft - offset.x;
@@ -48,7 +49,13 @@ const DraggableCard : React.FC<Props> = ({ text, children, offsetLeft, offsetTop
 
     useEffect(() => {
         initElement();
-    }, [position]);
+        if (card.current) {
+            setPosition({
+                x: card.current?.parentElement.offsetWidth / 2,
+                y: card.current?.parentElement.offsetHeight / 2
+            });
+        }
+    }, []);
 
     return <div className='draggableCard' 
     style={{'position': 'absolute', 'left': position.x, 'top': position.y}}
@@ -57,6 +64,7 @@ const DraggableCard : React.FC<Props> = ({ text, children, offsetLeft, offsetTop
     onDragStart={dragStart}
     onDrop={(e) => e.preventDefault()}
     onDragOver={(e) => e.preventDefault()}
+    ref={card}
     draggable='true'>
         {children}
         <span>{text}</span>
