@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react';
+import { nanoid } from 'nanoid'
 import './index.css';
 import DraggableCard from '../DraggableCard';
+import DraggableCanvas from '../DraggableCanvas'
 
 interface mapArray {
   name: string;
+  id: string;
   children: Array<mapArray>;
 }
 
@@ -12,26 +15,32 @@ const DraggablePosition: React.FC = () => {
   let listMap : Array<mapArray> = [
     {
       name: '主体',
+      id: 'eudPJOUoexug9g2dPm9G9',
       children: [
         {
           name: 'React',
+          id: 'SxAgduFt0PEQSRy9nXUXa',
           children: [
             {
               name: 'TSX',
+              id: 'fxsuNznxjjeyje7sk46pa',
               children: [],
             },
           ],
         },
         {
           name: 'Vue',
+          id: 'ZwkPo2tlrngjTIRW0czqb',
           children: [],
         },
         {
           name: 'JavaScript',
+          id: 'OWlnGjzHQ0UvDH2CXMZQJ',
           children: [],
         },
         {
           name: 'ES6',
+          id: 'dxXw9oRaUgx8bohTeprSl',
           children: [],
         },
       ]
@@ -57,8 +66,8 @@ const DraggablePosition: React.FC = () => {
     offsetLeft = leftElement?.clientWidth + (parentElement?.scrollLeft ?? 0) + 40;
   };
 
-  const setup = (list: Array<mapArray>) : any => {
-    return list.map(({ name, children }, index) => {
+  const setup = (list: Array<mapArray>, id: any) : any => {
+    return list.map(({ name, children, id }, index) => {
       let color_index = Math.ceil(Math.random() * 5) - 1;
       return list.length ? (
         <>
@@ -68,10 +77,11 @@ const DraggablePosition: React.FC = () => {
             offsetTop={offsetTop}
             offsetLeft={offsetLeft}
             initElement={initElement}
+            parentId={id}
           >
             <i className="icon" id={`line${index}`} style={{ '--i': colors[color_index] }}></i>
           </DraggableCard>
-          {setup(children)}
+          {setup(children, id)}
         </>
       ) : null;
     });
@@ -80,7 +90,11 @@ const DraggablePosition: React.FC = () => {
   useEffect(() => {
     initElement();
   }, []);
-  return <div className="draggable-content">{setup(listMap)}</div>;
+
+  return <div className="draggable-content">
+    <DraggableCanvas></DraggableCanvas>
+    {setup(listMap, null)}
+  </div>;
 };
 
 export default DraggablePosition;

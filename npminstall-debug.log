@@ -1,17 +1,25 @@
 {
   root: '/Users/ijj/web_react/tool-admin',
   registry: 'https://registry.npmmirror.com',
-  pkgs: [],
+  pkgs: [
+    {
+      name: '@types/uuid',
+      version: 'latest',
+      type: 'tag',
+      alias: undefined,
+      arg: [Result]
+    }
+  ],
   production: false,
   cacheStrict: false,
   cacheDir: '/Users/ijj/.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"],"original":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com"]}',
-    npm_config_user_agent: 'npminstall/7.11.1 npm/? node/v14.21.3 darwin arm64',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","@types/uuid"],"original":["--fix-bug-versions","--china","--userconfig=/Users/ijj/.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","@types/uuid"]}',
+    npm_config_user_agent: 'npminstall/7.11.1 npm/? node/v18.20.4 darwin arm64',
     npm_config_cache: '/Users/ijj/.npminstall_tarball',
-    NODE: '/Users/ijj/.nvm/versions/node/v14.21.3/bin/node',
-    npm_node_execpath: '/Users/ijj/.nvm/versions/node/v14.21.3/bin/node',
+    NODE: '/Users/ijj/.nvm/versions/node/v18.20.4/bin/node',
+    npm_node_execpath: '/Users/ijj/.nvm/versions/node/v18.20.4/bin/node',
     npm_execpath: '/opt/homebrew/lib/node_modules/cnpm/node_modules/npminstall/bin/install.js',
     npm_config_userconfig: '/Users/ijj/.cnpmrc',
     npm_config_disturl: 'https://cdn.npmmirror.com/binaries/node',

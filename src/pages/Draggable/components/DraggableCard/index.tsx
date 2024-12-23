@@ -1,7 +1,13 @@
-import React,{ ReactNode, useEffect, useState, useRef } from 'react'
+import React,{ ReactNode, useEffect, useState } from 'react'
 import './index.css'
 
+interface Position {
+    x: number,
+    y: number
+}
+
 interface Props {
+    parentId: string,
     text: string,
     key: number,
     children: ReactNode,
@@ -10,15 +16,9 @@ interface Props {
     initElement: () => void
 }
 
-interface Position {
-    x: number,
-    y: number
-}
+const DraggableCard : React.FC<Props> = ({ parentId, text, children, offsetLeft, offsetTop, initElement }) => {
 
-const DraggableCard : React.FC<Props> = ({ text, children, offsetLeft, offsetTop, initElement }) => {
-
-    const card = useRef(null);
-    const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+    const [position, setPosition] = useState<Position>({x: 0, y: 0});
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 });
     const dragEnd = (e: any) => {
         if (e.clientX > 0 && e.clientY > 0) {
@@ -51,16 +51,20 @@ const DraggableCard : React.FC<Props> = ({ text, children, offsetLeft, offsetTop
         initElement();
     }, []);
 
+    useEffect(() => {
+
+    }, [position.x, position.y]);
+
     return <div className='draggableCard' 
-    style={{'position': 'absolute', 'left': position.x, 'top': position.y}}
-    onDragEnd={dragEnd}
-    onDrag={drag}
-    onDragStart={dragStart}
-    onDrop={(e) => e.preventDefault()}
-    onDragOver={(e) => e.preventDefault()}
-    ref={card}
-    draggable='true'>
-        {children}
+        style={{'position': 'absolute', 'left': position.x, 'top': position.y}}
+        onDragEnd={dragEnd}
+        onDrag={drag}
+        onDragStart={dragStart}
+        onDrop={(e) => e.preventDefault()}
+        onDragOver={(e) => e.preventDefault()}
+        id={parentId}
+        draggable='true'>
+            {children}
         <span>{text}</span>
     </div>
 }

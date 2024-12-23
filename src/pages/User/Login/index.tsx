@@ -210,6 +210,7 @@ const Login: React.FC = () => {
             <>
               <ProFormText
                 name="username"
+                initialValue='admin'
                 fieldProps={{
                   size: 'large',
                   prefix: <UserOutlined />,
@@ -232,6 +233,7 @@ const Login: React.FC = () => {
               />
               <ProFormText.Password
                 name="password"
+                initialValue='ant.design'
                 fieldProps={{
                   size: 'large',
                   prefix: <LockOutlined />,
