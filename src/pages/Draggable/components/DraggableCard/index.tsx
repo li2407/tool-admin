@@ -7,16 +7,15 @@ interface Position {
 }
 
 interface Props {
-    parentId: string,
     text: string,
     key: number,
     children: ReactNode,
     offsetTop: number,
     offsetLeft: number,
-    initElement: () => void
+    initElement: () => void,
 }
 
-const DraggableCard : React.FC<Props> = ({ parentId, text, children, offsetLeft, offsetTop, initElement }) => {
+const DraggableCard : React.FC<Props> = ({ text, children, offsetLeft, offsetTop, initElement }) => {
 
     const [position, setPosition] = useState<Position>({x: 0, y: 0});
     const [offset, setOffset] = useState<Position>({ x: 0, y: 0 });
@@ -51,10 +50,6 @@ const DraggableCard : React.FC<Props> = ({ parentId, text, children, offsetLeft,
         initElement();
     }, []);
 
-    useEffect(() => {
-
-    }, [position.x, position.y]);
-
     return <div className='draggableCard' 
         style={{'position': 'absolute', 'left': position.x, 'top': position.y}}
         onDragEnd={dragEnd}
@@ -62,7 +57,6 @@ const DraggableCard : React.FC<Props> = ({ parentId, text, children, offsetLeft,
         onDragStart={dragStart}
         onDrop={(e) => e.preventDefault()}
         onDragOver={(e) => e.preventDefault()}
-        id={parentId}
         draggable='true'>
             {children}
         <span>{text}</span>

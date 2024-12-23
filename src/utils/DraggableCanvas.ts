@@ -12,13 +12,15 @@ let cx = null
 function strokLine({ card, position } : strokLine) {
 
     const init = () => {
-        let canvas : HTMLCanvasElement = document.getElementById('draggable-canvas');
-        if (canvas != null) {
-            cx = canvas.getContext('2d');
+        if (document.getElementById('draggable-canvas') != null) {
+            let canvas : HTMLCanvasElement = document.getElementById('draggable-canvas');
+            if (canvas != null) {
+                cx = canvas.getContext('2d');
+            }
         }
     }
 
     return {
-        init
+        
     }
 }

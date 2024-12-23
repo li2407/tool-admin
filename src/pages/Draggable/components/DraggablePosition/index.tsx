@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { nanoid } from 'nanoid'
+import React, { useEffect, useState } from 'react';
 import './index.css';
 import DraggableCard from '../DraggableCard';
 import DraggableCanvas from '../DraggableCanvas'
@@ -48,7 +47,6 @@ const DraggablePosition: React.FC = () => {
   ];
 
   let colors = ['#12ff26', '#FFB812FF', '#1271FFFF', '#D278FBFF', '#FF1222FF'];
-
   let offsetTop = 0;
   let offsetLeft = 0;
   let topElement1 = null;
@@ -66,7 +64,7 @@ const DraggablePosition: React.FC = () => {
     offsetLeft = leftElement?.clientWidth + (parentElement?.scrollLeft ?? 0) + 40;
   };
 
-  const setup = (list: Array<mapArray>, id: any) : any => {
+  const setup = (list: Array<mapArray>, parint_id: any) : any => {
     return list.map(({ name, children, id }, index) => {
       let color_index = Math.ceil(Math.random() * 5) - 1;
       return list.length ? (
@@ -77,7 +75,6 @@ const DraggablePosition: React.FC = () => {
             offsetTop={offsetTop}
             offsetLeft={offsetLeft}
             initElement={initElement}
-            parentId={id}
           >
             <i className="icon" id={`line${index}`} style={{ '--i': colors[color_index] }}></i>
           </DraggableCard>
