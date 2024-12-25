@@ -72,9 +72,11 @@ const DraggablePosition: React.FC = () => {
           <DraggableCard
             text={name}
             key={index}
+            id={id}
             offsetTop={offsetTop}
             offsetLeft={offsetLeft}
             initElement={initElement}
+            parint_id={parint_id}
           >
             <i className="icon" id={`line${index}`} style={{ '--i': colors[color_index] }}></i>
           </DraggableCard>
