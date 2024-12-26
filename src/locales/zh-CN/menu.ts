@@ -3,7 +3,7 @@ export default {
   'menu.more-blocks': '更多区块',
   'menu.draggable': '拖拽模块',
   'menu.draggable.draggable-position': '拖拽定位',
-  'menu.line': '画板模块',
+  'menu.draw': '画板模块',
   'menu.home': '首页',
   'menu.admin': '管理页',
   'menu.admin.sub-page': '二级管理页',

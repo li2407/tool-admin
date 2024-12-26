@@ -1,5 +1,5 @@
 import React,{ ReactNode, useEffect, useState } from 'react'
-import { setList, line } from '@/utils/DraggableCanvas'
+// import { setList, line } from '@/utils/DraggableCanvas'
 import './index.css'
 
 interface Position {
@@ -51,11 +51,11 @@ const DraggableCard : React.FC<Props> = ({ text, id, children, parint_id, offset
 
     useEffect(() => {
         initElement();
-        line();
+        // line();
     }, []);
 
     useEffect(() => {
-        setList({ x: position.x, y: position.y, parint_id: parint_id }, id);
+        // setList({ x: position.x, y: position.y, parint_id: parint_id }, id);
     }, [position.x, position.y])
 
     return <div className='draggableCard' 

@@ -44,9 +44,9 @@ export default [
     ]
   },
   {
-    path: '/line',
-    name: 'line',
-    component: './Line',
+    path: '/draw',
+    name: 'draw',
+    component: './Draw',
   },
   {
     path: '/admin',

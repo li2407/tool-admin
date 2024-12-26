@@ -15,8 +15,18 @@
     gap: 20px;
 }
 
+.meun div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
 .meun img {
     width: 20px;
     height: 20px;
     user-select: none;
+    object-fit: fill;
+    box-sizing: border-box;
 }

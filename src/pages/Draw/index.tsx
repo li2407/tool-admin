@@ -1,13 +1,13 @@
 import React from 'react';
-import LineContent from './components/LineContent';
+import DrawContent from './components/DrawContent';
 import { PageContainer } from '@ant-design/pro-components';
 
-const Line: React.FC = () => {
+const Draw: React.FC = () => {
   return (
     <PageContainer>
-      <LineContent></LineContent>
+      <DrawContent></DrawContent>
     </PageContainer>
   );
 };
 
-export default Line;
+export default Draw;

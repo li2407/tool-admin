@@ -4,7 +4,7 @@
 import React from 'react';
 
 export async function getRoutes() {
-  const routes = {"1":{"path":"/user","layout":false,"id":"1"},"2":{"name":"login","path":"/user/login","parentId":"1","id":"2"},"3":{"path":"/welcome","name":"welcome","parentId":"ant-design-pro-layout","id":"3"},"4":{"path":"/draggable","name":"draggable","parentId":"ant-design-pro-layout","id":"4"},"5":{"path":"/draggable","redirect":"/draggable/draggable-position","parentId":"4","id":"5"},"6":{"path":"/draggable/draggable-position","name":"draggable-position","parentId":"4","id":"6"},"7":{"path":"/line","name":"line","parentId":"ant-design-pro-layout","id":"7"},"8":{"path":"/admin","name":"admin","access":"canAdmin","parentId":"ant-design-pro-layout","id":"8"},"9":{"path":"/admin","redirect":"/admin/sub-page","parentId":"8","id":"9"},"10":{"path":"/admin/sub-page","name":"sub-page","parentId":"8","id":"10"},"11":{"name":"list.table-list","path":"/list","parentId":"ant-design-pro-layout","id":"11"},"12":{"path":"/","redirect":"/welcome","parentId":"ant-design-pro-layout","id":"12"},"13":{"path":"*","layout":false,"id":"13"},"ant-design-pro-layout":{"id":"ant-design-pro-layout","path":"/","isLayout":true},"umi/plugin/openapi":{"path":"/umi/plugin/openapi","id":"umi/plugin/openapi"}} as const;
+  const routes = {"1":{"path":"/user","layout":false,"id":"1"},"2":{"name":"login","path":"/user/login","parentId":"1","id":"2"},"3":{"path":"/welcome","name":"welcome","parentId":"ant-design-pro-layout","id":"3"},"4":{"path":"/draggable","name":"draggable","parentId":"ant-design-pro-layout","id":"4"},"5":{"path":"/draggable","redirect":"/draggable/draggable-position","parentId":"4","id":"5"},"6":{"path":"/draggable/draggable-position","name":"draggable-position","parentId":"4","id":"6"},"7":{"path":"/draw","name":"draw","parentId":"ant-design-pro-layout","id":"7"},"8":{"path":"/admin","name":"admin","access":"canAdmin","parentId":"ant-design-pro-layout","id":"8"},"9":{"path":"/admin","redirect":"/admin/sub-page","parentId":"8","id":"9"},"10":{"path":"/admin/sub-page","name":"sub-page","parentId":"8","id":"10"},"11":{"name":"list.table-list","path":"/list","parentId":"ant-design-pro-layout","id":"11"},"12":{"path":"/","redirect":"/welcome","parentId":"ant-design-pro-layout","id":"12"},"13":{"path":"*","layout":false,"id":"13"},"ant-design-pro-layout":{"id":"ant-design-pro-layout","path":"/","isLayout":true},"umi/plugin/openapi":{"path":"/umi/plugin/openapi","id":"umi/plugin/openapi"}} as const;
   return {
     routes,
     routeComponents: {
@@ -14,7 +14,7 @@ export async function getRoutes() {
 '4': React.lazy(() => import('./EmptyRoute')),
 '5': React.lazy(() => import('./EmptyRoute')),
 '6': React.lazy(() => import(/* webpackChunkName: "p__Draggable__index" */'@/pages/Draggable/index.tsx')),
-'7': React.lazy(() => import(/* webpackChunkName: "p__Line__index" */'@/pages/Line/index.tsx')),
+'7': React.lazy(() => import(/* webpackChunkName: "p__Draw__index" */'@/pages/Draw/index.tsx')),
 '8': React.lazy(() => import('./EmptyRoute')),
 '9': React.lazy(() => import('./EmptyRoute')),
 '10': React.lazy(() => import(/* webpackChunkName: "p__Admin" */'@/pages/Admin.tsx')),

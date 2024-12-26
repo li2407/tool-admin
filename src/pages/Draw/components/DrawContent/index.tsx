@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './index.css';
-import CanvasLine from '../CanvasLine';
+import CanvasDraw from '../CanvasDraw';
 
-const LineContent: React.FC = () => {
+const DrawContent: React.FC = () => {
   const content = useRef(null);
   const [style, setStyle] = useState({ width: 0, height: 0 });
   useEffect(() => {
@@ -15,9 +15,9 @@ const LineContent: React.FC = () => {
 
   return (
     <div ref={content} className="line-content">
-      <CanvasLine width={style.width} height={style.height}></CanvasLine>
+      <CanvasDraw width={style.width} height={style.height}></CanvasDraw>
     </div>
   );
 };
 
-export default LineContent;
+export default DrawContent;
