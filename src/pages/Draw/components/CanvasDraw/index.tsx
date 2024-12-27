@@ -9,6 +9,7 @@ interface CanvasProps {
 
 const CanvasDraw: React.FC<CanvasProps> = ({ width, height }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef2 = useRef<HTMLCanvasElement>(null);
   const meun = [
     {
       value: 1,
@@ -46,39 +47,41 @@ const CanvasDraw: React.FC<CanvasProps> = ({ width, height }) => {
       icon: '/icons/reset.png',
     },
   ];
-  const [type, setType] = useState(0);
+  const [type, setType] = useState(3);
   const { init, remove, drawType } = useDraw();
 
 
-  const typeSelect = (type: number) : void => {
-    setType(type);
-    switch(type) {
-      case 3: 
-        drawType('pencil');
-        break;
-      case 4: 
-        drawType('line');
-        break;
-      case 5: 
-        drawType('rect');
-        break;
-      case 6: 
-        drawType('arc');
-        break;
-      default:
-        console.log(type);
-        break;
+  const typeSelect = (num: number) : void => {
+    if (num >= 3 && num <= 6) {
+      setType(num);
+      switch(num) {
+        case 3: 
+          drawType('pencil');
+          break;
+        case 4: 
+          drawType('line');
+          break;
+        case 5: 
+          drawType('rect');
+          break;
+        case 6: 
+          drawType('arc');
+          break;
+        default:
+          console.log(type);
+          break;
+      }
     }
   }
 
   useEffect(() => {
-    if (canvasRef.current) {
-      init(canvasRef.current);
+    if (canvasRef.current && canvasRef2.current) {
+      init(canvasRef.current, canvasRef2.current);
       return () => {
         remove();
       };
     }
-  });
+  }, []);
 
   return (
     <>
@@ -93,6 +96,7 @@ const CanvasDraw: React.FC<CanvasProps> = ({ width, height }) => {
         ))}
       </div>
       <canvas width={width} height={height} ref={canvasRef}></canvas>
+      <canvas style={{position: 'absolute', zIndex: 3, backgroundColor: 'transparent'}} width={width} height={height} ref={canvasRef2}></canvas>
     </>
   );
 };
