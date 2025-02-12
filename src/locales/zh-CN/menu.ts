@@ -5,6 +5,7 @@ export default {
   'menu.draggable': '拖拽',
   'menu.draw': '画板',
   'menu.login': '登录',
+  'menu.three': '3D模型',
   'menu.register': '注册',
   'menu.register-result': '注册结果',
   'menu.dashboard': 'Dashboard',

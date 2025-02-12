@@ -44,6 +44,11 @@ export default [
     component: './Draw',
   },
   {
+    path: '/three',
+    name: 'three',
+    component: './ThreeJS',
+  },
+  {
     path: '*',
     layout: false,
     component: './404',
