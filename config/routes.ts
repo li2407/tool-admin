@@ -25,42 +25,23 @@ export default [
     ],
   },
   {
-    path: '/draw',
-    name: 'draw',
-    component: './Draw',
+    path: '/',
+    redirect: '/welcome',
   },
   {
     path: '/welcome',
     name: 'welcome',
-    icon: 'smile',
     component: './Welcome',
   },
   {
-    path: '/admin',
-    name: 'admin',
-    icon: 'crown',
-    access: 'canAdmin',
-    routes: [
-      {
-        path: '/admin',
-        redirect: '/admin/sub-page',
-      },
-      {
-        path: '/admin/sub-page',
-        name: 'sub-page',
-        component: './Admin',
-      },
-    ],
+    path: '/draggable',
+    name: 'draggable',
+    component: './Draggable',
   },
   {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
-  },
-  {
-    path: '/',
-    redirect: '/welcome',
+    path: '/draw',
+    name: 'draw',
+    component: './Draw',
   },
   {
     path: '*',
