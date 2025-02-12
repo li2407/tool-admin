@@ -1,0 +1,30 @@
+#draw-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.meun {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meun div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.meun div img {
+    width: 20px;
+    height: 20px;
+    user-select: none;
+}
