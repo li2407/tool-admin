@@ -72,34 +72,34 @@ export function useDraw() {
     ctx?.stroke();
   };
 
-  const reset = (canvasElement: HTMLCanvasElement) => {
+  const reset = () => {
     is_stop = false;
     setPosition([]);
-    if (canvasElement !== null) {
-      canvas = canvasElement;
-      cx = canvas.getContext('2d');
-      cx?.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    positionRef.current = [];
+    cx2?.clearRect(0, 0, canvas2?.width, canvas2?.height);
+    cx?.clearRect(0, 0, canvas?.width, canvas?.height);
   };
 
   const stroke = (ctx: CanvasRenderingContext2D) => {
     positionRef.current.forEach((item) => {
-      switch (item.type) {
-        case 'pencil':
-          pencil(ctx, item.position);
-          break;
-        case 'line':
-          line(ctx, item.position);
-          break;
-        case 'rect':
-          rect(ctx, item.position);
-          break;
-        case 'arc':
-          arc(ctx, item.position);
-          break;
-        default:
-          console.log(typeRef.current);
-          break;
+      if (!item.delete) {
+        switch (item.type) {
+          case 'pencil':
+            pencil(ctx, item.position);
+            break;
+          case 'line':
+            line(ctx, item.position);
+            break;
+          case 'rect':
+            rect(ctx, item.position);
+            break;
+          case 'arc':
+            arc(ctx, item.position);
+            break;
+          default:
+            console.log(typeRef.current);
+            break;
+        }
       }
     });
   };
@@ -131,23 +131,29 @@ export function useDraw() {
     is_stop = false;
   };
 
-  // const back = (cx: CanvasRenderingContext2D) => {
-  //   if (position.length > 0) {
-  //     position[position.length - 1].delete = true;
-  //     setPosition(position);
-  //     cx?.clearRect(0, 0, canvas.width, canvas.height);
-  //     stroke(cx);
-  //   }
-  // }
+  const back = () => {
+    if (position.length > 0) {
+      let index = positionRef.current.reverse().findIndex((item) => !item.delete);
+      if (index === -1) return;
+      positionRef.current[index].delete = true;
+      setPosition(positionRef.current.reverse());
+      cx2?.clearRect(0, 0, canvas2?.width, canvas2?.height);
+      cx?.clearRect(0, 0, canvas?.width, canvas?.height);
+      if (cx !== null) stroke(cx);
+    }
+  };
 
-  // const forward = (cx: CanvasRenderingContext2D) => {
-  //   if (position.length > 0) {
-  //     position[position.length - 1].delete = false;
-  //     setPosition(position);
-  //     cx?.clearRect(0, 0, canvas.width, canvas.height);
-  //     stroke(cx);
-  //   }
-  // }
+  const forward = () => {
+    if (position.length > 0) {
+      let index = positionRef.current.findIndex((item) => !item.delete);
+      if (index === -1) return;
+      positionRef.current[index].delete = false;
+      setPosition(positionRef.current);
+      cx2?.clearRect(0, 0, canvas2?.width, canvas2?.height);
+      cx?.clearRect(0, 0, canvas?.width, canvas?.height);
+      if (cx !== null) stroke(cx);
+    }
+  };
 
   const init = (canvasElement: HTMLCanvasElement, canvasElement2: HTMLCanvasElement) => {
     is_stop = false;
@@ -188,6 +194,8 @@ export function useDraw() {
     drawType,
     remove,
     reset,
+    back,
+    forward,
   };
 }
 

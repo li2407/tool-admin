@@ -48,7 +48,7 @@ const CanvasDraw: React.FC<CanvasProps> = ({ width, height }) => {
     },
   ];
   const [type, setType] = useState(3);
-  const { init, remove, drawType } = useDraw();
+  const { init, remove, drawType, back, forward, reset } = useDraw();
 
   const typeSelect = (num: number): void => {
     if (num >= 3 && num <= 6) {
@@ -73,10 +73,13 @@ const CanvasDraw: React.FC<CanvasProps> = ({ width, height }) => {
     } else {
       switch (num) {
         case 1:
+          back();
           break;
         case 2:
+          forward();
           break;
         case 7:
+          reset();
           break;
         default:
           console.log(type);
@@ -102,6 +105,9 @@ const CanvasDraw: React.FC<CanvasProps> = ({ width, height }) => {
             key={item.value}
             style={{
               backgroundColor: type === item.value && type > 2 && type < 7 ? '#eee' : 'transparent',
+              width: '30px',
+              height: '30px',
+              borderRadius: '5px',
             }}
           >
             <img
