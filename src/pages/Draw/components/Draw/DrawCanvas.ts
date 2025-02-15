@@ -28,12 +28,12 @@ export function useDraw() {
     typeRef.current = num;
   };
 
-  const pencil = (ctx: CanvasRenderingContext2D, position: Array<{ x: number; y: number }>) => {
-    position.forEach((item, index) => {
+  const pencil = (ctx: CanvasRenderingContext2D, data: Position) => {
+    data.position.forEach((item, index) => {
       if (index === 0) {
         ctx?.beginPath();
         ctx?.moveTo(item.x, item.y);
-      } else if (index !== 0 && index === position.length - 1) {
+      } else if (index !== 0 && index === data.position.length - 1) {
         ctx?.lineTo(item.x, item.y);
         ctx?.stroke();
       } else {
@@ -42,30 +42,33 @@ export function useDraw() {
     });
   };
 
-  const line = (ctx: CanvasRenderingContext2D, position: Array<{ x: number; y: number }>) => {
+  const line = (ctx: CanvasRenderingContext2D, data: Position) => {
     ctx?.beginPath();
-    ctx?.moveTo(position[0].x, position[0].y);
-    ctx?.lineTo(position[position.length - 1].x, position[position.length - 1].y);
-    ctx?.stroke();
-  };
-
-  const rect = (ctx: CanvasRenderingContext2D, position: Array<{ x: number; y: number }>) => {
-    ctx?.beginPath();
-    ctx?.rect(
-      position[0].x,
-      position[0].y,
-      position[position.length - 1].x - position[0].x,
-      position[position.length - 1].y - position[0].y,
+    ctx?.moveTo(data.position[0].x, data.position[0].y);
+    ctx?.lineTo(
+      data.position[data.position.length - 1].x,
+      data.position[data.position.length - 1].y,
     );
     ctx?.stroke();
   };
 
-  const arc = (ctx: CanvasRenderingContext2D, position: Array<{ x: number; y: number }>) => {
+  const rect = (ctx: CanvasRenderingContext2D, data: Position) => {
+    ctx?.beginPath();
+    ctx?.rect(
+      data.position[0].x,
+      data.position[0].y,
+      data.position[data.position.length - 1].x - data.position[0].x,
+      data.position[data.position.length - 1].y - data.position[0].y,
+    );
+    ctx?.stroke();
+  };
+
+  const arc = (ctx: CanvasRenderingContext2D, data: Position) => {
     ctx?.beginPath();
     ctx?.arc(
-      position[position.length - 1].x,
-      position[position.length - 1].y,
-      Math.abs(position[position.length - 1].x - position[0].x),
+      data.position[data.position.length - 1].x,
+      data.position[data.position.length - 1].y,
+      Math.abs(data.position[data.position.length - 1].x - data.position[0].x),
       0,
       Math.PI * 2,
     );
@@ -81,27 +84,30 @@ export function useDraw() {
   };
 
   const stroke = (ctx: CanvasRenderingContext2D) => {
-    positionRef.current.forEach((item) => {
-      if (!item.delete) {
+    for (let index = 0; index < positionRef.current.length; index++) {
+      const item = positionRef.current[index];
+      if (item.delete) {
+        continue;
+      } else {
         switch (item.type) {
           case 'pencil':
-            pencil(ctx, item.position);
+            pencil(ctx, item);
             break;
           case 'line':
-            line(ctx, item.position);
+            line(ctx, item);
             break;
           case 'rect':
-            rect(ctx, item.position);
+            rect(ctx, item);
             break;
           case 'arc':
-            arc(ctx, item.position);
+            arc(ctx, item);
             break;
           default:
             console.log(typeRef.current);
             break;
         }
       }
-    });
+    }
   };
 
   const mousedown = ({ offsetX, offsetY }: Offset) => {
@@ -111,6 +117,7 @@ export function useDraw() {
   };
 
   const mouseup = () => {
+    cx?.clearRect(0, 0, canvas?.width, canvas?.height);
     cx2?.clearRect(0, 0, canvas2?.width, canvas2?.height);
     if (cx !== null) stroke(cx);
     is_stop = false;
@@ -120,12 +127,14 @@ export function useDraw() {
     if (is_stop && positionRef.current.length > 0) {
       position[position.length - 1].position.push({ x: offsetX, y: offsetY });
       setPosition(position);
+      cx?.clearRect(0, 0, canvas?.width, canvas?.height);
       cx2?.clearRect(0, 0, canvas2?.width, canvas2?.height);
       if (cx2 !== null) stroke(cx2);
     }
   };
 
   const mouseleave = () => {
+    cx?.clearRect(0, 0, canvas?.width, canvas?.height);
     cx2?.clearRect(0, 0, canvas2?.width, canvas2?.height);
     if (cx !== null) stroke(cx);
     is_stop = false;
@@ -145,7 +154,7 @@ export function useDraw() {
 
   const forward = () => {
     if (position.length > 0) {
-      let index = positionRef.current.findIndex((item) => !item.delete);
+      let index = positionRef.current.findIndex((item) => item.delete);
       if (index === -1) return;
       positionRef.current[index].delete = false;
       setPosition(positionRef.current);
